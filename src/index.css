@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+@tailwind base; @tailwind components; @tailwind utilities;
+:root { --primary: #CCFF00; --secondary: #00E5FF; --background: #0A0A0A; --glass: rgba(255, 255, 255, 0.05); --border: rgba(255, 255, 255, 0.1); }
+body { margin: 0; font-family: 'Outfit', sans-serif; background-color: var(--background); color: #FFFFFF; }
+.glass-card { background: var(--glass); backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 24px; }
+.neo-button { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #000; font-weight: 800; border-radius: 12px; }

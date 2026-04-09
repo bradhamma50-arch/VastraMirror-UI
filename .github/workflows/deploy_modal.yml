@@ -1,0 +1,24 @@
+name: Deploy Modal Engine
+on:
+  push:
+    paths:
+      - 'engine/**'
+      - '.github/workflows/deploy_modal.yml'
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: modal-labs/assistant-action@v1
+        with:
+          modal-token-id: ${{ secrets.MODAL_TOKEN_ID }}
+          modal-token-secret: ${{ secrets.MODAL_TOKEN_SECRET }}
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install Modal
+        run: pip install modal
+      - name: Deploy to Modal
+        run: modal deploy engine/modal_t4_tryon.py
